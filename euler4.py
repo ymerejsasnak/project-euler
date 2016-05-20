@@ -18,7 +18,7 @@ notes/thoughts:
 #NEW: 
 # WOW - did not realize below would be that simple 
 # leaving it as is even though it could be changed to be more general purpose
-# and to give actual answer rather than list of all palindromes
+# and to give actual answer rather than all the unnecessary info
 
 # OLD:
 # function to help look for patterns, cycles through 100 to 999 for each factor
