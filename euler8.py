@@ -52,19 +52,42 @@ number ='''73167176531330624919225119674426574742355349194934
 71636269561882670428252483600823257530420752963450'''.replace('\n', '')  
 # (that last part removes the newlines I left for readability)
 
-# be SMART about it!  for any adjacent digits with a 0 in them,
+# for any adjacent digits with a 0 in them,
 # the product will be 0!  so split up the string (and remove any too short)
-possibles = [p for p in number.split('0') if len(p) >= 13]
+possibles = [list(p) for p in number.split('0') if len(p) >= 13]
+# (okay, this may be unnecessary, and maybe even makes it a little more of
+# a pain in the ass below...but it seemed smart at the time)
 
 
-
-# left with this:  very easy to do products and find max...finish tomorrow
-print(possibles)
+products = []
 
 
-
-
-
-def product(terms):
+# function to calculate product from list of terms
+def product(termlist):
     total = 1
+    for term in termlist:
+        total *= term
+    return total
+    
+
+# run thru each list of string digits
+for p in possibles:
+    # convert to ints first!
+    p = [int(x) for x in p]
+    # run through each possible adjacent 13 digits in each list, add to answer list
+    for i in range(0, len(p) - 12):
+        products.append(product(p[i:i+13]))
+
+print(max(products))
+
+
+
+
+
+
+
+
+
+
+    
     
